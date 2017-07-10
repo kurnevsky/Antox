@@ -107,10 +107,10 @@ class FileMessageHolder(val view: View) extends GenericMessageHolder(view) with 
   }
 
   def showCancelButton(): Unit = {
-    val cancel = filetransfer_cancel_button_view.findViewById(R.id.file_cancel_button)
+    val cancel = filetransfer_cancel_button_view.findViewById(R.id.file_cancel_button).asInstanceOf[ImageView]
 
-    cancel.asInstanceOf[ImageView].getDrawable.clearColorFilter()
-    cancel.asInstanceOf[ImageView].setBackgroundColor(Color.TRANSPARENT)
+    cancel.getDrawable.clearColorFilter()
+    cancel.setBackgroundColor(Color.TRANSPARENT)
 
     cancel.setOnTouchListener(new OnTouchListener() {
       override def onTouch(view: View, event: MotionEvent): Boolean = {
@@ -163,16 +163,16 @@ class FileMessageHolder(val view: View) extends GenericMessageHolder(view) with 
   }
 
   def showFileButtons(): Unit = {
-    val accept = fileButtons.findViewById(R.id.file_accept_button)
-    val reject = fileButtons.findViewById(R.id.file_reject_button)
+    val accept = fileButtons.findViewById(R.id.file_accept_button).asInstanceOf[ImageView]
+    val reject = fileButtons.findViewById(R.id.file_reject_button).asInstanceOf[ImageView]
     val key = msg.key.asInstanceOf[FriendKey]
 
 
-    accept.asInstanceOf[ImageView].getDrawable.clearColorFilter()
-    accept.asInstanceOf[ImageView].setBackgroundColor(Color.TRANSPARENT)
+    accept.getDrawable.clearColorFilter()
+    accept.setBackgroundColor(Color.TRANSPARENT)
 
-    reject.asInstanceOf[ImageView].getDrawable.clearColorFilter()
-    reject.asInstanceOf[ImageView].setBackgroundColor(Color.TRANSPARENT)
+    reject.getDrawable.clearColorFilter()
+    reject.setBackgroundColor(Color.TRANSPARENT)
 
 
     accept.setOnTouchListener(new OnTouchListener() {

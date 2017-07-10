@@ -5,7 +5,7 @@ import android.media.AudioManager
 import android.os.{Bundle, Vibrator}
 import android.view.View.OnClickListener
 import android.view.{LayoutInflater, View, ViewGroup}
-import android.widget.LinearLayout
+import android.widget.{Chronometer, LinearLayout}
 import chat.tox.antox.R
 import chat.tox.antox.activities.CallReplyDialog
 import chat.tox.antox.av.Call
@@ -44,7 +44,7 @@ class IncomingCallFragment extends CommonCallFragment {
   override def onCreateView(inflater: LayoutInflater, container: ViewGroup, savedInstanceState: Bundle): View = {
     val rootView = super.onCreateView(inflater, container, savedInstanceState)
 
-    rootView.findViewById(R.id.call_duration).setVisibility(View.GONE)
+    rootView.findViewById(R.id.call_duration).asInstanceOf[Chronometer].setVisibility(View.GONE)
 
     /* Set up the answer and av buttons */
     answerCallButton = rootView.findViewById(R.id.answer_call_circle)

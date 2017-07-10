@@ -221,7 +221,7 @@ abstract class GenericChatActivity[KeyType <: ContactKey] extends AppCompatActiv
   override def onOptionsItemSelected(item: MenuItem): Boolean = {
     super.onOptionsItemSelected(item)
 
-    val maybeItemView = Option(toolbar.findViewById(item.getItemId))
+    val maybeItemView = Option[View](toolbar.findViewById(item.getItemId))
     val clickLocation = maybeItemView.map(_.getCenterLocationOnScreen()).getOrElse(Location.Origin)
 
     item.getItemId match {

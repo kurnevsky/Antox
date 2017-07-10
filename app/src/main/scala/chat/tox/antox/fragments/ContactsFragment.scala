@@ -27,7 +27,7 @@ class ContactsFragment extends AbstractContactsFragment(showSearch = true, showF
 
   override def onCreateView(inflater: LayoutInflater, container: ViewGroup, savedInstanceState: Bundle): View = {
     val rootView = super.onCreateView(inflater, container, savedInstanceState)
-    rootView.findViewById(R.id.center_text).setVisibility(View.GONE)
+    rootView.findViewById(R.id.center_text).asInstanceOf[View].setVisibility(View.GONE)
     rootView
   }
 

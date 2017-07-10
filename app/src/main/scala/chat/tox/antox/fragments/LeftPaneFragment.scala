@@ -37,7 +37,7 @@ class LeftPaneFragment extends Fragment {
         return customTabLayout
       } else {
         val materialRippleLayout: MaterialRippleLayout = LayoutInflater.from(getActivity).inflate(R.layout.custom_tab, parent, false).asInstanceOf[MaterialRippleLayout]
-        val imageView = materialRippleLayout.findViewById(R.id.image)
+        val imageView = materialRippleLayout.findViewById(R.id.image).asInstanceOf[View]
         imageView.asInstanceOf[ImageView].setImageResource(ICONS(position))
         imageView.setLayoutParams(params)
         return materialRippleLayout

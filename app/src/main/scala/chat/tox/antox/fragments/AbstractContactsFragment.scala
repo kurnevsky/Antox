@@ -74,17 +74,17 @@ abstract class AbstractContactsFragment extends Fragment with OnItemClickListene
     contactsListView.setOnItemClickListener(this)
     contactsListView.setOnItemLongClickListener(this)
 
+    val fab = rootView.findViewById(R.id.fab).asInstanceOf[FloatingActionButton]
     if (showFab) {
-      val fab = rootView.findViewById(R.id.fab).asInstanceOf[FloatingActionButton]
       val parser = getResources.getXml(R.color.fab_colors_list)
       fab.setBackgroundTintList(ColorStateList.createFromXml(getResources, parser))
-      rootView.findViewById(R.id.fab).setVisibility(View.VISIBLE)
+      fab.setVisibility(View.VISIBLE)
     } else {
-      rootView.findViewById(R.id.fab).setVisibility(View.GONE)
+      fab.setVisibility(View.GONE)
     }
 
+    val search = rootView.findViewById(R.id.searchBar).asInstanceOf[EditText]
     if (showSearch) {
-      val search = rootView.findViewById(R.id.searchBar).asInstanceOf[EditText]
       search.addTextChangedListener(new TextWatcher {
 
         override def beforeTextChanged(charSequence: CharSequence, start: Int, count: Int, after: Int) {
@@ -98,10 +98,10 @@ abstract class AbstractContactsFragment extends Fragment with OnItemClickListene
         }
       })
     } else {
-      rootView.findViewById(R.id.contact_search_view).setVisibility(View.GONE)
+      search.setVisibility(View.GONE)
     }
 
-    rootView.findViewById(R.id.center_text).setVisibility(View.GONE)
+    rootView.findViewById(R.id.center_text).asInstanceOf[View].setVisibility(View.GONE)
 
     rootView
   }
